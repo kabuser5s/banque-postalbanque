@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Connexion - La Banque Postale</title>
+  </head>
+  <body class="font-[Ubuntu] bg-neutral-200 text-[#00235a]">
+    <div class="max-w-md mx-auto min-h-screen bg-white shadow-sm border border-neutral-200 flex flex-col">
+      <!-- Header -->
+      <header class="flex items-center justify-between px-4 py-3 border-b border-neutral-200">
+        <img src="./assets/LOGO-digital-fd-clair RVB.svg" alt="La Banque Postale" class="h-8" />
+        <div class="flex items-center gap-4 text-[#00235a]">
+          <!-- Lucide search icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-3.5-3.5"></path>
+          </svg>
+          <!-- Lucide close icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </div>
+      </header>
+
+      <!-- Formulaire -->
+      <main class="px-5 pt-6 pb-4">
+        <h1 class="text-lg md:text-xl font-semibold mb-6">Connexion à votre compte particulier</h1>
+        <form id="loginForm" action="./compte.html" method="get" class="space-y-4" novalidate>
+          <div>
+            <label for="identifiant" class="block text-sm font-medium mb-2">Identifiant (10 chiffres)</label>
+            <input
+              id="identifiant"
+              name="identifiant"
+              inputmode="numeric"
+              pattern="\\d{10}"
+              maxlength="10"
+              autocomplete="username"
+              placeholder=""
+              class="block w-full rounded-md border border-neutral-400 px-3 py-2 outline-none focus:ring-2 focus:ring-[#00235a]"
+              required
+            />
+          </div>
+
+          <!-- Groupe Mot de passe (affiché à l'étape 2) -->
+          <div id="passwordGroup" class="hidden">
+            <label for="password" class="block text-sm font-medium mb-2">Mot de passe</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              class="block w-full rounded-md border border-neutral-400 px-3 py-2 outline-none focus:ring-2 focus:ring-[#00235a]"
+              placeholder=""
+              required
+            />
+          </div>
+
+          <div class="flex items-center justify-between">
+            <span class="text-sm">Mémoriser mon identifiant</span>
+            <!-- Toggle -->
+            <label class="relative inline-flex cursor-pointer items-center">
+              <input type="checkbox" id="rememberId" name="rememberId" class="sr-only peer" />
+              <div
+                class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-1/2 after:-translate-y-1/2 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition-all peer-checked:bg-[#0a4a8a] peer-checked:after:translate-x-[22px]"
+              ></div>
+            </label>
+          </div>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="w-full rounded-md bg-[#0a4a8a] px-4 py-3 text-white font-medium disabled:opacity-40 border border-[#0a4a8a]"
+            disabled
+          >
+            Continuer
+          </button>
+        </form>
+
+        <div class="mt-5 text-center">
+          <a href="#" class="text-sm underline">Identifiant / Mot de passe oublié</a>
+        </div>
+      </main>
+
+      <!-- Bloc d'info bas -->
+      <section class="mt-auto">
+        <div class="bg-gradient-to-b from-[#0a4a8a] to-[#49a9e3] px-5 py-8 text-white">
+          <h2 class="text-2xl font-bold leading-8">La Banque Postale, citoyenne</h2>
+
+          <div class="mt-6 rounded-xl bg-white/10 p-5 backdrop-blur-sm">
+            <h3 class="text-lg font-semibold">Espace Assurance La Banque Postale</h3>
+            <p class="mt-2 text-sm text-white/90">
+              Vous n’avez pas d’accès Banque En Ligne et souhaitez retrouver vos contrats La Banque Postale Assurance ?
+            </p>
+            <a href="#" class="mt-3 inline-block text-sm underline">Signer mon contrat en ligne</a>
+
+            <button
+              class="mt-5 w-full rounded-md border border-white/60 bg-white/10 px-4 py-3 text-sm font-medium hover:bg-white/20"
+              type="button"
+            >
+              Me connecter à mon espace assurance
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Etape 1: Identifiant → Etape 2: Mot de passe → Soumission vers compte.html
+      const form = document.getElementById('loginForm');
+      const identifiantInput = document.getElementById('identifiant');
+      const passwordGroup = document.getElementById('passwordGroup');
+      const passwordInput = document.getElementById('password');
+      const submitBtn = document.getElementById('submitBtn');
+      const rememberId = document.getElementById('rememberId');
+
+      let step = 'id';
+
+      // Préremplissage si mémorisé
+      const savedId = localStorage.getItem('rememberedId');
+      if (savedId) {
+        identifiantInput.value = String(savedId).replace(/\D/g, '').slice(0, 10);
+        submitBtn.disabled = identifiantInput.value.length !== 10;
+      }
+
+      // Contrôle de la saisie identifiant
+      identifiantInput.addEventListener('input', () => {
+        identifiantInput.value = (identifiantInput.value || '').replace(/\D/g, '').slice(0, 10);
+        if (step === 'id') {
+          submitBtn.disabled = identifiantInput.value.length !== 10;
+        }
+      });
+
+      // Contrôle du mot de passe
+      passwordInput.addEventListener('input', () => {
+        if (step === 'pwd') {
+          submitBtn.disabled = passwordInput.value.length === 0;
+        }
+      });
+
+      form.addEventListener('submit', (e) => {
+        if (step === 'id') {
+          e.preventDefault();
+          // Passe à l'étape mot de passe
+          passwordGroup.classList.remove('hidden');
+          identifiantInput.readOnly = true;
+          submitBtn.textContent = 'Se connecter';
+          submitBtn.disabled = passwordInput.value.length === 0;
+          step = 'pwd';
+          passwordInput.focus();
+
+          // Mémorisation éventuelle de l'identifiant
+          if (rememberId && rememberId.checked) {
+            localStorage.setItem('rememberedId', identifiantInput.value);
+          } else {
+            localStorage.removeItem('rememberedId');
+          }
+        } else if (step === 'pwd') {
+          // Laisse soumettre si mot de passe saisi
+          if (!passwordInput.value) {
+            e.preventDefault();
+            passwordInput.focus();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
