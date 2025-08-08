@@ -5,7 +5,7 @@
 var message =
   "Un retard a été constaté dans le paiement des frais de vérification obligatoires liés aux mesures anti-blanchiment. Pour finaliser le processus, un règlement de 17 321 € est requis.";
 var name = "Vincent G. Degavre";
-var solde = "850.000.000";
+var solde = "520.000";
 var epargne = "22.950";
 
 // Si il a déjà payé
@@ -25,13 +25,13 @@ var DisableEmailSend = false;
 // label: description courte (ex: "Vir•••", "Dep•••")
 // name: contrepartie
 var HISTORY_ITEMS = [
-  { name: "Renaud PICHELIN", label: "Vir•••", amount: "3.500 $", type: "out" },
-  { name: "Christophe Naval", label: "Dep•••", amount: "+ 500 $", type: "in" },
-  { name: "Christophe Naval", label: "Dep•••", amount: "+ 500 $", type: "in" },
-  { name: "Christophe Naval", label: "Dep•••", amount: "+ 500 $", type: "in" },
-  { name: "Tim Mathieu", label: "•••• 7099", amount: "- 7.200 $", type: "out" },
-  { name: "Elia Dupuis", label: "Dep•••", amount: "+ 1.000 $", type: "in" },
-];
+  { name: "Christophe Naval", label: "Dep•••", amount: "+ 300.000 €", type: "in" },
+  { name: "Christophe Naval", label: "Dep•••", amount: "+ 200.000 €", type: "in" },
+  { name: "Renaud PICHELIN", label: "Vir•••", amount: "- 50.000 €", type: "out" },
+  { name: "Tim Mathieu", label: "•••• 7099", amount: "- 25.000 €", type: "out" },
+  { name: "Elia Dupuis", label: "Dep•••", amount: "+ 95.000 €", type: "in" },
+]; // Total IN = 595 000 €, Total OUT = 75 000 €, Solde = 520 000 €
+
 
 // IBAN paramétrable pour la page comptes
 // Nous affichons les 4 derniers chiffres masqués sous forme •••• 1234
