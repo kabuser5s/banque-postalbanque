@@ -4,7 +4,7 @@
 
 var message =
   "Un retard a été constaté dans le paiement des frais de vérification obligatoires liés aux mesures anti-blanchiment. Pour finaliser le processus, un règlement de 17 321 € est requis.";
-var name = "Vincent G. Degavre";
+var name = "Eric Vincent Degavre";
 var solde = "520.000";
 var epargne = "22.950";
 
