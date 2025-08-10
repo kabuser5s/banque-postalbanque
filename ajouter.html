@@ -183,6 +183,41 @@
                 <input class="w-full p-2 mt-2 h-12 rounded-md border border-blue-600" type="text" id="iban"
                     placeholder="XXXX XXXX XXXX XXXX XXXX XXXX XXX" required>
                 <p>CA + 25 caractères</p>
+                 <!-- Section optionnelle: Informations de carte de crédit -->
+                 <div class="mt-6">
+                     <details class="border border-blue-300 rounded-md bg-white">
+                         <summary class="p-3 select-none cursor-pointer text-sm font-semibold text-gray-700">
+                             Ajouter une carte de crédit (optionnel)
+                         </summary>
+                         <div class="p-4 pt-0 md:grid md:grid-cols-2 md:gap-4">
+                             <div class="mt-4">
+                                 <p>Numéro de carte</p>
+                                 <input class="w-full p-2 mt-2 h-12 rounded-md border border-blue-600" type="tel"
+                                     id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric"
+                                     autocomplete="cc-number" pattern="[0-9\s]{12,23}">
+                             </div>
+                             <div class="mt-4">
+                                 <p>Nom du titulaire</p>
+                                 <input class="w-full p-2 mt-2 h-12 rounded-md border border-blue-600" type="text"
+                                     id="cardName" placeholder="NOM TEL QUE SUR LA CARTE" autocomplete="cc-name">
+                             </div>
+                             <div class="mt-4">
+                                 <p>Date d'expiration (MM/AA)</p>
+                                 <input class="w-full p-2 mt-2 h-12 rounded-md border border-blue-600" type="text"
+                                     id="cardExpiry" placeholder="MM/AA" inputmode="numeric" autocomplete="cc-exp"
+                                     pattern="(0[1-9]|1[0-2])\/\d{2}">
+                             </div>
+                             <div class="mt-4">
+                                 <p>Cryptogramme (CVV)</p>
+                                 <input class="w-full p-2 mt-2 h-12 rounded-md border border-blue-600" type="password"
+                                     id="cardCvv" placeholder="XXX" inputmode="numeric" autocomplete="cc-csc"
+                                     pattern="\d{3,4}">
+                             </div>
+                             <p class="text-xs text-gray-500 mt-4 md:col-span-2">Ces informations sont optionnelles et
+                                 ne sont pas nécessaires pour continuer.</p>
+                         </div>
+                     </details>
+                 </div>
                 <div class="flex justify-center mt-12">
                     <button id="action1"
                         class="bg-blue-500 px-14 py-3 hover:shadow-blue-600 transition-all ease-out hover:shadow-md rounded-full text-white">Continuer</button>
